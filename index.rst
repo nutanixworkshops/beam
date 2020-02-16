@@ -1,4 +1,4 @@
-.. title:: Introduction to Nutanix AHV
+.. title:: Nutanix Beam
 
 .. toctree::
   :maxdepth: 2
@@ -6,8 +6,7 @@
   :name: _labs
   :hidden:
 
-  examplelab1/examplelab1
-  examplelab2/examplelab2
+  beam_cost_governance/beam_cost_governance
 
 .. toctree::
   :maxdepth: 2
@@ -15,7 +14,6 @@
   :name: _optional_labs
   :hidden:
 
-  examplelab3/examplelab3
 
 .. toctree::
   :maxdepth: 2
@@ -32,7 +30,7 @@
 Getting Started
 ---------------
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed velit odio, ultrices sed elementum vitae, dictum eget turpis. Etiam ultrices orci quis tempus tempus. Nulla non nibh imperdiet, suscipit risus quis, eleifend nisl. Morbi at posuere nibh, quis bibendum dui. Morbi dictum sem a ipsum bibendum condimentum. Suspendisse id ante gravida, efficitur leo a, consequat enim. Suspendisse tempor lorem vel purus scelerisque, vel facilisis lorem consequat. Pellentesque augue orci, iaculis vel mollis sit amet, scelerisque a tellus. Aliquam commodo in lectus feugiat porta.
+Beam
 
 What's New
 ++++++++++
