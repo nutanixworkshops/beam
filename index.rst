@@ -7,6 +7,7 @@
   :hidden:
 
   beam_cost_governance/beam_cost_governance
+  beam_security_compliance/beam_security_compliance
 
 .. toctree::
   :maxdepth: 2
