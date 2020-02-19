@@ -36,7 +36,7 @@ Beam is a SaaS service and does not require any installation for the cost govern
 
 #. Beam SaaS login credentials:
 	- Navigate to https://beam.nutanix.com/
-	- Select “*Login with your Company ID*”
+	- Select “*Sign in with My Nutanix*” and then “*Login with your Company ID*”
 	- Enter Company ID: *beam-lab@nutanix.com*
 	- Enter Unique ID: *nutanix6-ad*
 	- This will take you to an Active Directory login page where you will enter a username and password. Use your login credentials assigned from the cluster assignment spreadsheet.
@@ -147,7 +147,7 @@ This concludes the walkthrough of Beam’s cost metering capabilities for Nutani
 
 	.. Note::
 	
-	  It takes up to 24hrs for VM costing data to show up after a Nutanix account is configured in Beam. The TCO model is baked into the product and VM costs will be calculated out-of-the-box using the default values of the TCO model. The model can be fine-tuned depending on customer need.
+	  It takes a few hours for VM costing data to show up after a Nutanix account is configured in Beam. The TCO model is baked into the product and VM costs will be calculated out-of-the-box using the default values of the TCO model. The model can be fine-tuned depending on customer need.
 
 Cost Center Reporting
 ++++++++++++++++++++++
