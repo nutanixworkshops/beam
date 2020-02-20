@@ -36,7 +36,7 @@ Beam’s security compliance capabilities for Nutanix private cloud have two com
 
 #. Beam SaaS login credentials:
 	- Navigate to https://beam.nutanix.com/
-	- Select “*Login with your Company ID*”
+	- Select “*Sign in with My Nutanix*" and then "*Login with your Company ID*”
 	- Enter Company ID: *beam-lab@nutanix.com*
 	- Enter Unique ID: *nutanix6-ad*
 	- This will take you to an Active Directory login page where you will enter a username and password. Use your login credentials assigned from the cluster assignment spreadsheet.
@@ -46,6 +46,8 @@ Beam’s security compliance capabilities for Nutanix private cloud have two com
 If this is your first time accessing the Beam lab, you may be navigated to Beam’s cost governance module for Nutanix and may see two popups explaining how Beam calculates the cost data for Nutanix products. You can ignore these messages for the security compliance lab, close the pop ups and navigate to the security compliance module.
 
 	.. figure:: images/beam_sc_image2.png
+
+	.. figure:: images/beam_sc_image2b.png
 	
 	.. note::
 	
@@ -70,7 +72,14 @@ URL: https://10.55.20.42:9440/
 Username: *admin*
 Password: *techX2020!*
 
-The Beam-VM needs 2 vCPUs (at least 1 core per vCPU), 2GB RAM and 15GB storage. The VM name used for this lab is *BeamLabVM*.
+The Beam-VM needs 2 vCPUs (at least 1 core per vCPU), 2GB RAM and 15GB storage. The VM name used for this lab in Prism Central is *BeamVM-DoNotDelete*.
+
+
+	.. figure:: images/beam_sc_image2c.png
+
+
+	.. figure:: images/beam_sc_image2d.png
+
 
 2. If the VM is powered on, click Launch Console and use the following default credentials to log in: 
 username: *beam* 
@@ -82,17 +91,25 @@ password: *b3@mMeUp!*
 
 3. Network settings have already been configured in the VM by providing an IPv4 address, a Netmask, Gateway and DNS server address.
 
-4. Launch a local instance of the Beam UI application in the VM by going to https://beam.local/ in a browser. Prism Central details have been configured in this Beam UI application. Click on “Prism Central Connection” to verify the PC details that have been provided: 
-Username: *admin*
-Password: *techX2020!*
-IP address: *10.55.20.42*
-Port: *9440*
+4. A local instance of the Beam UI application should already be running in the VM. If not, go to https://beam.local/ in a browser. You can verify that Prism Central details have been configured in this Beam UI application and a token has been generated which is also configured in the Beam SaaS instance 
 
-5. When actually doing the Prism Central configuration in Beam, you would generate a token in the next step and enter that token in Beam SaaS account. You do not need to do this for the lab but you can verify where the token is entered in the Beam SaaS account.
 
-6. After logging into the Beam SaaS account using the credentials provided in the prerequisites section, navigate to Security Compliance module and select the Nutanix account
+	.. figure:: images/beam_sc_image2e.png
 
-7. Go to **Configure* -> Nutanix Accounts** and validate that there is a token entered there with the PC name *PC-RTP-POC020*. During the actual installation process, you will also be able to select which clusters you want to configure in Beam. The HPOC cluster RTP-POC020 has been configured for this lab.
+
+Click on "*Prism Central Connection*" and verify that the PC details have been configured.
+
+
+	.. figure:: images/beam_sc_image2f.png
+
+
+5. You do not need to generate a new token for this lab but you can familiarize yourself with where the token is generated in the Beam UI application and entered in the Beam SaaS instance.
+
+
+	.. figure:: images/beam_sc_image2g.png
+
+
+6. After logging into the Beam SaaS account using the credentials provided in the prerequisites section, go to **Configure* -> Nutanix Accounts** and validate that the same token is entered there with the PC name *PC-RTP-POC020*. During an actual installation, you will also be able to select which clusters you want to configure in Beam. The HPOC cluster RTP-POC020 has been configured for this lab.
 
 
 	.. figure:: images/beam_sc_image4.png
@@ -202,7 +219,9 @@ In addition to various security audits included in Beam’s default security pol
 PCI-DSS Compliance
 .................
 
-Beam provides an extensive list of all actions that an organization should take to comply with regulatory policies like PCI-DSS. These can be categorized into three types - Process, Documentation and Configuration related tasks. Process and Documentation tasks related to security processes and supporting documentation that you need to maintain. Configuration tasks relate to the automated resource configuration audits that Beam runs. Click on section 1.1 to see details.
+Beam provides an extensive list of all actions that an organization should take to comply with regulatory policies like PCI-DSS. The regulatory policy compliance view can be considered as **a system of records** to identify your compliance with all tasks that need to be performed to comply with regulatory policies. 
+
+These can be categorized into three types - Process, Documentation and Configuration related tasks. Process and Documentation tasks related to security processes and supporting documentation that you need to maintain. Configuration tasks relate to the automated resource configuration audits that Beam runs. Click on section 1.1 to see details.
 
 
 	.. figure:: images/beam_sc_image19.png
@@ -219,11 +238,13 @@ Here you see extensive details of all steps needed to be taken to comply with PC
 	.. figure:: images/beam_sc_image20.png
 
 
+We see the details of TCP ports allowing all external traffic and therefore the PCI-DSS requirement of “restricting inbound and outbound traffic” is not satisfied and your organization will not be in full compliance with PCI-DSS policy.
+
 
 STIG Compliance
 .................
 
-The regulatory policy compliance view can be considered as **a system of records** to identify your compliance with all tasks - process, documentation and cloud configuration - that need to be performed to comply with regulatory policies. Go back one step, click on *STIG policy* and familiarize yourself with the STIG compliance view.
+Go back one step, click on *STIG policy* and familiarize yourself with the STIG compliance view.
 
 
 	.. figure:: images/beam_sc_image21.png
@@ -231,8 +252,6 @@ The regulatory policy compliance view can be considered as **a system of records
 
 Here we see details of all audits in the context of compliance with STIG policies - which ones passed and which ones failed.
 
-
-We see the details of TCP ports allowing all external traffic and therefore the PCI-DSS requirement of “restricting inbound and outbound traffic” is not satisfied and your organization will not be in full compliance with PCI-DSS policy.
 
 
 Custom Security Audits
@@ -253,45 +272,39 @@ Navigate to **Configure -> Custom Audits** and click *Add New Custom Audit*, and
 	.. figure:: images/beam_sc_image23.png
 
 
-You will see a Query Editor. This query editor has been built using a SQL based query language just called **Beam Query Language**. You will see a drop-down menu to help you start building a custom edit. We want to create an audit that checks for a specific Controller VM based on IP address of the VM, running on AHV, and we want to be notified if Disk Size allocated to that VM goes below a certain threshold. Here are the steps to create this audit:
+You will see a Query Editor. This query editor has been built using a SQL based query language just called **Beam Query Language**. You will see a drop-down menu to help you start building a custom edit. We want to create an audit that checks for VMs with network security group rules allowing inbound traffic over public IP 0.0.0.0. Here are the steps to create this audit:
 
-**From:** Select *NX*. You will see options for other clouds too.The next popup menu will give you a lot of resource options. Select *Host*
-
-
-	.. figure:: images/beam_sc_image24.png
+**From:** Select *NX*. You will see options for other clouds too.The next popup menu will give you a lot of resource options. Select *VM*
 
 
-The next variable will be **Where:**. Select *ControllerVM* and then *ip*.
+	.. figure:: images/beam_sc_image2h.png
 
 
-	.. figure:: images/beam_sc_image25.png
+The next variable will be **Where:**. Select *Configure* and then *NetworkSecurityGroup*. This will show all auditable capabilities categorized for network security groups.
 
 
-Now you will be able to specify the IP address of the CVM. Select *contains*. Default text of *foo* will be suggested. You can select it and change it to 10.0.0.0
+	.. figure:: images/beam_sc_image2i.png
 
 
-	.. figure:: images/beam_sc_image26.png
+Now we want to check for security group rules that govern how inbound traffic flows to VMs. Select **AppRule** and then *InboundAllowedGroup* to specifically check for the rules on inbound traffic flow.
 
 
-You will see options to add logical functions. Select **AND**. Then select *Hypervisor* from the drop-down menu, select *fullName*, contains and replace the default text of *foo* with AHV
+	.. figure:: images/beam_sc_image2j.png
 
 
-	.. figure:: images/beam_sc_image27.png
+Lastly, we want to check when inbound traffic is allowed over a specific IP address, which is public IP 0.0.0.0. Select **IpSubnet** and then *ip*. You will see several mathematical functions. Select *contains* and placeholder text *foo* will show up. You can click on it and replace it with 0.0.0.0
 
 
-Select the logical function **AND** again, this time select *VM* from the list of options, then *Disk* and *size.MB*
+	.. figure:: images/beam_sc_image2k.png
 
 
-	.. figure:: images/beam_sc_image28.png
+This completes the custom audit. You can select *Save Audit*.
 
 
-You can now specify the alert threshold for disk size. We chose disk size less than 100MB
+	.. figure:: images/beam_sc_image2l.png
 
 
-	.. figure:: images/beam_sc_image29.png
-
-
-This completes the custom audit. You can select *Save Audit*. In the next pop up you can specify a name for the audit, audit description, severity type and how you would like to categorize the audit. Please use your initials when saving the audit name, such as *XY-BeamLab*. This will help prevent multiple people choosing the same audit name.
+Specify a name for the audit, audit description, severity type and how you would like to categorize the audit. Please use your initials when saving the audit name, such as *XY-BeamLab*. This will help prevent multiple people choosing the same audit name.
 
 
 	.. figure:: images/beam_sc_image30.png
@@ -312,7 +325,7 @@ The last step in this lab is to create a notification rule so that you will be s
 Go to **Configure -> Integration Rules** and click on *Create New Rule*
 
 
-	.. figure:: images/beam_sc_image31.png
+	.. figure:: images/beam_sc_image2m.png
 
 
 Here you can define the criteria for being alerted. This workflow can also be used to send notifications to Splunk or create Webhooks. Under the option of “Event Type” select *Any Issue State Change (All)*. This will ensure that the notification is valid for all state changes of a security issue including new issues, resolved issues and suppressed issues.
@@ -348,7 +361,7 @@ This completes the Private Cloud Cost Governance lab. You may log out of your Be
 Takeaways
 +++++++++
 
-- Beam’s security compliance capabilities can identify cloud resource misconfigurations using 1000+ security audits across Nutanix and public clouds.
+- Beam’s security compliance capabilities can identify resource misconfigurations using 1000+ security audits across on-premises private clouds built on Nutanix and public cloud infrastructure.
 - Beam also makes it very easy to create your own custom-audits and get alerted on audit failures that you care about.
 - Nutanix costs can be configured using a highly customizable TCO model that helps you identify your true cost of running your private cloud
 - You can also use Beam as a system-of-records to validate your compliance with regulatory policies like PCI-DSS.
