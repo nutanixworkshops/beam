@@ -295,13 +295,13 @@ Now we want to check for security group rules that govern how inbound traffic fl
 Lastly, we want to check when inbound traffic is allowed over a specific IP address, which is public IP 0.0.0.0. Select **IpSubnet** and then *ip*. You will see several mathematical functions. Select *contains* and placeholder text *foo* will show up. You can click on it and replace it with 0.0.0.0
 
 
-	.. figure:: images/beam_sc_image2h.png
+	.. figure:: images/beam_sc_image2k.png
 
 
 This completes the custom audit. You can select *Save Audit*.
 
 
-	.. figure:: images/beam_sc_image2i.png
+	.. figure:: images/beam_sc_image2l.png
 
 
 Specify a name for the audit, audit description, severity type and how you would like to categorize the audit. Please use your initials when saving the audit name, such as *XY-BeamLab*. This will help prevent multiple people choosing the same audit name.
@@ -325,7 +325,7 @@ The last step in this lab is to create a notification rule so that you will be s
 Go to **Configure -> Integration Rules** and click on *Create New Rule*
 
 
-	.. figure:: images/beam_sc_image2j.png
+	.. figure:: images/beam_sc_image2m.png
 
 
 Here you can define the criteria for being alerted. This workflow can also be used to send notifications to Splunk or create Webhooks. Under the option of “Event Type” select *Any Issue State Change (All)*. This will ensure that the notification is valid for all state changes of a security issue including new issues, resolved issues and suppressed issues.
