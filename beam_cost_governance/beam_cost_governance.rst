@@ -165,8 +165,8 @@ Now that we know what individual VMs cost to run on Nutanix, we can create cost 
 	
 	.. Note::
 	
-	  It takes up to 24hrs for VM costing data to show up after a Nutanix account is configured in Beam. The TCO model is baked into the product and VM costs will be calculated out-of-the-box using the default values of the TCO model. The model can be fine-tuned depending on customer need.
-
+	  In order to avoid conflicting work with another user, please start the name of your Cost Center with your initials. Example: XY-BeamLab
+	
 	.. figure:: images/beam_17.png
 	
 	.. figure:: images/beam_18.png
