@@ -181,6 +181,10 @@ The total cluster level costs (calculated using the TCO model) are allocated to 
 
 This concludes the walkthrough of Beam’s cost metering capabilities for Nutanix Private Cloud.
 
+	.. Note::
+	
+	  It takes a few hours for VM costing data to show up after a Nutanix account is configured in Beam. The TCO model is baked into the product and VM costs will be calculated out-of-the-box using the default values of the TCO model. The model can be fine-tuned depending on customer need.
+
 Cost Center Reporting
 ++++++++++++++++++++++
 
@@ -197,13 +201,14 @@ Creating a Cost Center
 
 	.. figure:: images/beam_17.png
 
-	.. note::
-
-	  It takes up to 24 hours for VM costing data to show up after a Nutanix account is configured in Beam.
-
+	
 #. Provide a name for the cost center and click on **Define Cost Center**.
 
 	.. figure:: images/beam_18.png
+
+	.. note::
+
+	  In order to avoid conflicting work with another user, please start the name of your Cost Center with your initials. Example: XY-BeamLab
 
 #. Fill out the following fields:
 
