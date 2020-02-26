@@ -109,7 +109,7 @@ Click on "*Prism Central Connection*" and verify that the PC details have been c
 	.. figure:: images/beam_sc_image2g.png
 
 
-6. After logging into the Beam SaaS account using the credentials provided in the prerequisites section, go to **Configure* -> Nutanix Accounts** and validate that the same token is entered there with the PC name *PC-RTP-POC020*. During an actual installation, you will also be able to select which clusters you want to configure in Beam. The HPOC cluster RTP-POC020 has been configured for this lab.
+6. After logging into the Beam SaaS account using the credentials provided in the prerequisites section, go to **Configure* -> Nutanix Accounts** and validate that a token is entered there with the PC name *PC-RTP-POC020*. Note that this token may be different in Beam SaaS instance because of the lab cluster setup having been refreshed since this script was created. During an actual installation, you will also be able to select which clusters you want to configure in Beam. The HPOC cluster RTP-POC020 has been configured for this lab.
 
 
 	.. figure:: images/beam_sc_image4.png
@@ -280,7 +280,7 @@ You will see a Query Editor. This query editor has been built using a SQL based 
 	.. figure:: images/beam_sc_image2h.png
 
 
-The next variable will be **Where:**. Select *Configure* and then *NetworkSecurityGroup*. This will show all auditable capabilities categorized for network security groups.
+The next variable will be **Where:**. Select *Category* and then *NetworkSecurityGroup*. This will show all auditable capabilities categorized for network security groups.
 
 
 	.. figure:: images/beam_sc_image2i.png
@@ -307,7 +307,7 @@ This completes the custom audit. You can select *Save Audit*.
 Specify a name for the audit, audit description, severity type and how you would like to categorize the audit. Please use your initials when saving the audit name, such as *XY-BeamLab*. This will help prevent multiple people choosing the same audit name.
 
 
-	.. figure:: images/beam_sc_image30.png
+	.. figure:: images/beam_sc_image2m.png
 
 
 Deploy the audit and you are done! In just a few minutes we were able to create a highly customized security audit without needing to know any coding or doing any configurations!
@@ -325,7 +325,7 @@ The last step in this lab is to create a notification rule so that you will be s
 Go to **Configure -> Integration Rules** and click on *Create New Rule*
 
 
-	.. figure:: images/beam_sc_image2m.png
+	.. figure:: images/beam_sc_image31.png
 
 
 Here you can define the criteria for being alerted. This workflow can also be used to send notifications to Splunk or create Webhooks. Under the option of “Event Type” select *Any Issue State Change (All)*. This will ensure that the notification is valid for all state changes of a security issue including new issues, resolved issues and suppressed issues.
