@@ -109,7 +109,7 @@ Click on "*Prism Central Connection*" and verify that the PC details have been c
 	.. figure:: images/beam_sc_image2g.png
 
 
-6. After logging into the Beam SaaS account using the credentials provided in the prerequisites section, go to **Configure* -> Nutanix Accounts** and validate that the same token is entered there with the PC name *PC-RTP-POC020*. During an actual installation, you will also be able to select which clusters you want to configure in Beam. The HPOC cluster RTP-POC020 has been configured for this lab.
+6. After logging into the Beam SaaS account using the credentials provided in the prerequisites section, go to **Configure* -> Nutanix Accounts** and validate that a token is entered there with the PC name *PC-RTP-POC020*. Note that this token may be different in Beam SaaS instance because of the lab cluster setup having been refreshed since this script was created. During an actual installation, you will also be able to select which clusters you want to configure in Beam. The HPOC cluster RTP-POC020 has been configured for this lab.
 
 
 	.. figure:: images/beam_sc_image4.png
