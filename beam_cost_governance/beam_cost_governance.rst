@@ -6,22 +6,24 @@
 Cost Governance with Xi Beam
 ----------------------------
 
-Xi Beam is a cost governance and security compliance service that works with both public clouds and Nutanix Private Cloud. This lab introduces Beam’s cost governance capabilities specifically for Nutanix.
+Xi Beam is a cost governance and security compliance service that works with both public clouds and Nutanix Private Cloud. This lab introduces Beam’s cost governance capabilities for Nutanix as well as public clouds.
 
 .. figure:: images/beam_vm_costing.png
 
-What is Cost Governance? It is a set of rules by which you measure your cloud consumption and implement cost control policies. Specifically for the Nutanix Private Cloud, Beam provides the following cost governance capabilities:
+What is Cost Governance? It is a set of rules by which you measure your cloud consumption and implement cost control policies. Beam provides the following cost governance capabilities across the Nutanix Private Cloud and public clouds like AWS and Azure:
 
-- Granular Cloud Metering: know how much it really costs to run VMs in your Nutanix Private Cloud
-- Cost Center Reporting: tag-based automated reports to know how much a cost center is spending
+- Granular Private Cloud Metering: know how much it really costs to run VMs in your Nutanix Private Cloud
+- Multi-Cloud Cost Centers: tag-based automated cost reports to know how much a cost center is spending across public and private clouds
 - Chargeback & Budgeting: drive accountability by allocating any untagged costs to appropriate cost centers and implement budget alerts
+- Overall Cost Savings: Reduce total cloud spend by acting upon cost saving recommendations especially for public clouds
 
-**In this lab you will mimic a customer use case of identifying the true cost of running workloads on Nutanix Private Cloud across various users. By the end of the lab, you will learn:**
+**In this lab you will mimic a customer use case of identifying the true cost of running VDI workloads across Nutanix Private Cloud and AWS across various users. By the end of the lab, you will learn:**
 
 - How to use a TCO model to calculate the cost of Nutanix clusters and VMs
-- How to use Prism categories to allocate those costs to a cost center for VM spend reporting
+- How to use Prism categories and AWS tags to allocate those costs to a multi-cloud cost center for spend reporting
 - How to implement Chargeback to ensure costs are allocated to appropriate cost centers
-- How to set up alerts to be notified before costs exceed a certain budget
+- How to set up budget alerts to be notified before costs exceed a certain budget
+- How to act upon Beam's cost saving recommendations for public clouds (AWS/Azure)
 
 Logging In
 ++++++++++
@@ -50,7 +52,8 @@ Beam is a SaaS service and does not require any on-premises installation for cos
 		Additional pre-requisites already configured for this lab include:
 
 		- The Nutanix cluster being used must already be licensed in the Nutanix Salesforce database.
-		- Pulse must be enabled within Prism for your cluster, allowing Beam to receive configuration and utilization details of VMs running on the cluster.
+		- Pulse must be enabled within Prism for your cluster, allowing Beam to receive configuration details of VMs running on the cluster.
+		- AWS should be configured at the Payer Account level.
 
 #. If this is your first time accessing the Beam lab, you may see two popup messages explaining how Beam calculates the cost data for Nutanix products. Review and dismiss the messages to proceed to the Beam Cost Governance portal.
 
