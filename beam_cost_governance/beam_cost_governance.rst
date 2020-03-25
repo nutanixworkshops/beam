@@ -43,9 +43,9 @@ Beam is a SaaS service and does not require any on-premises installation for cos
 #. Log in using the following credentials:
 
 	- **Username** - Your **Lab VPN Username** in :ref:`clusterassignments`
-	- **Password** - techX2020!
+	- **Password** - Please find the Beam SaaS login password in the cluster assignment sheet
 
-	.. figure:: images/beam_01c.png
+	.. figure:: images/beam_01c2.png
 
 	.. note::
 
