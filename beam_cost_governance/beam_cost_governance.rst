@@ -40,7 +40,7 @@ Beam is a SaaS service and does not require any on-premises installation for cos
 
 #. Enter **nutanix6-ad** as your **Unique ID** and click **Continue**.
 
-#. Log in using the following credentials:
+#. This will take you to an Active Directory login page. Use your login credentials assigned from the cluster assignment spreadsheet:
 
 	- **Username** - Your **Lab VPN Username** in :ref:`clusterassignments`
 	- **Password** - Please find the Beam SaaS login password in the cluster assignment sheet
