@@ -58,6 +58,10 @@ Beam is a SaaS service and does not require any on-premises installation for cos
 #. If this is your first time accessing the Beam lab, you may see two popup messages explaining how Beam calculates the cost data for Nutanix products. Review and dismiss the messages to proceed to the Beam Cost Governance portal.
 
 	.. figure:: images/beam_02.png
+	
+#. Next if it shows a View Selector screen, Select Nutanix and account shown.
+	
+	.. figure:: images/beam_03
 
 Private Cloud Cost Metering
 +++++++++++++++++++++++++++
@@ -71,20 +75,20 @@ In order to start using Beam, you will need to configure a customer’s Nutanix 
 
 	For the lab environment, the license key has already been entered.
 
-#. From the toolbar at the top of the portal, select **Configure > Nutanix Account**.
+#. From the hamburger menu at the top left of the portal, select **Configure > Nutanix Account**.
 
 	.. figure:: images/beam_03b.png
 
 #. Observe the configured license key.
 
-	.. figure:: images/beam_04b.png
+	.. figure:: images/beam_04.png
 
 Product Costs
 ..............
 
 The next step is to ensure Beam has accurate license cost data for all Nutanix products.
 
-#. From the toolbar at the top of the portal, select **Configure > Nutanix Cost Configuration**.
+#. From the menu icon at the top left of the portal, select **Configure > Nutanix Cost Configuration**.
 
 	Once you’ve entered the license key, Beam populates the customer's entire Nutanix purchase history from their Salesforce account. Beam automatically populates product costs based on assumed market price for all Nutanix products - hardware and software. The actual cost paid by customers may vary slightly depending on the final pricing from Nutanix resellers, which is unavailable to Beam.
 
@@ -119,7 +123,7 @@ The TCO model includes several cost heads that are automatically populated depen
 
 		Any third-party hardware costs are added automatically as well. Average cost per third-party appliance is assumed to be $12,000. Memory costs for the whole cluster can be added manually if you know the monthly cost per GB of RAM.
 
-		.. figure:: images/beam_07b.png
+		.. figure:: images/beam_07.png
 
 	- **Software**
 
@@ -127,7 +131,7 @@ The TCO model includes several cost heads that are automatically populated depen
 
 		Any additional software costs, such as a third-party application performance monitoring software cost can be added manually. All software costs are amortized on a monthly basis.
 
-		.. figure:: images/beam_08b.png
+		.. figure:: images/beam_08.png
 
 	- **Facilities**
 
@@ -170,9 +174,7 @@ Next, the cluster level costs are automatically allocated to individual VMs runn
 
 The total cluster level costs (calculated using the TCO model) are allocated to each VM depending on the number of hours that the VM is up and running and the capacity allocated to that VM relative to the overall capacity on the cluster. The CBL model is used to calculate cost per vCPU, cost per GB of storage and cost per GB of RAM. Those per unit costs are multiplied by the number of vCPUs, storage and memory allocated to each VM to get total VM costs. These VM costs are calculated out-of-the-box without needing any customer configuration.
 
-#. Click **Go Back** to access the Beam **Dashboard**.
-
-#. Select **Analyze > VM Costing** and search for **Cluster ID** ending in **4d3b**.
+#. From the menu item at top left, select **Analyze > VM Costing** and search for **Cluster ID** ending in **4d3b**.
 
 	.. figure:: images/beam_14.png
 
@@ -191,23 +193,26 @@ This concludes the walkthrough of Beam’s cost metering capabilities for Nutani
 Multi-Cloud Cost Center Reporting
 ++++++++++++++++++++++
 
-Now that we know what individual VMs cost to run on Nutanix, we can create cost views that aggregate consumption for various resources across Nutanix and public clouds. This is done by leveraging Prism's Categories as tags. Depending upon how Prism Categories are defined, these cost centers can help to track spending across various users, teams, applications, geographies, etc. Similarly, public cloud tags can be added to the same cost center definition to make them truly multi-cloud.
+Now that we know what individual VMs cost to run on Nutanix, we can create cost views that aggregate consumption for various resources across Nutanix and public clouds. This is done by leveraging Prism’s Categories as tags. Depending upon how Prism Categories are defined, these cost centers can help to track spending across various users, teams, applications, geographies, etc. Similarly, public cloud tags can be added to the same cost center definition to make them truly multi-cloud.
 
 Creating a Cost Center
 ......................
 
-#. Navigate to the **Global** Organization view from the main menu and go to the **Chargeback** tab. You may notice some cost centers previously created by other users.
+#. Navigate to the All Clouds view from the view selector at top right corner.
 
 	.. figure:: images/beam_16.png
+
+#. From the menu at top left, select **Chargeback**. You may notice some cost centers previously created by other users.
+
+	.. figure:: images/beam_16a.png
 
 #. Select **Create** then **Cost Center**.
 
 	.. figure:: images/beam_17.png
 
-	
 #. Provide a name for the cost center and click on **Define Cost Center**.
 
-	.. figure:: images/beam_18b.png
+	.. figure:: images/beam_18.png
 
 	.. note::
 
@@ -225,7 +230,7 @@ Creating a Cost Center
 
 		The *###* will be a three-digit number. You may select any number between 001 to 040. This is being done to provide a unique key-value pair for each lab attendee because each key-value pair can only be used once per unique cost center to avoid double counting of VM costs in different cost centers.
 
-	.. figure:: images/beam_19b.png
+	.. figure:: images/beam_19.png
 
 #. Select **Save Filter** to save the key-value pair used as a filter. You can add multiple key-value pairs to a cost center definition.
 
@@ -233,7 +238,7 @@ Creating a Cost Center
 
 	  Each Key-Value pair can only be added to a unique Cost Center. If you get an error message when you define your Key-Value pair, it is likely because another user already added that Key-Value pair to their Cost Center. Please select a different Key-Value pair.
 
-	  .. figure:: images/beam_20c.png
+	  .. figure:: images/beam_20.png
 
 #. Select **Add Filter** to now add an AWS tag to the same cost center definition. 
 	Fill out the following fields:
@@ -248,7 +253,7 @@ Creating a Cost Center
 
 		The *###* will be a three-digit number between 001 to 040. Please select the same number in user### that you chose for VDI### in the previous filter. This is being done to provide a unique key-value pair for each lab attendee because each key-value pair can only be used once per unique cost center to avoid double counting of VM costs in different cost centers.
 
-	.. figure:: images/beam_20d.png
+	.. figure:: images/beam_21.png
 
 #. Select **Save Filter** to save the key-value pair used as a filter.
 
@@ -260,7 +265,7 @@ Creating a Cost Center
 
 	Some customers may want to have several cost centers reporting to a common parent entity. For example, you may want to track the costs separately for different dev and prod teams all reporting to the same Engineering department. You can do this in Beam by defining a Business Unit which is nothing but a combination of multiple cost centers. Each Cost Center can only belong to one Business Unit.
 
-	.. figure:: images/beam_22b.png
+	.. figure:: images/beam_22.png
 
 Chargeback & Budgeting
 ++++++++++++++++++++++
@@ -276,7 +281,7 @@ Not all cloud resources may be tagged with key-pairs that you specify in cost ce
 
 #. Click on **View Details** to see the details of spend on this cluster that did not get allocated to any cost center.
 
-	.. figure:: images/beam_23b.png
+	.. figure:: images/beam_23.png
 
 #. If you find any unallocated spend from some VMs, you can select **Allocate** and choose the cost center(s) that you want to allocate that spend to.
 
@@ -291,7 +296,7 @@ Budget Alerts
 
 In this exercise you will define a budget for a cost center and set up a related alert.
 
-#. Navigate to the **Budget** tab and click on **Create a Budget**.
+#. From the menu on top left, click **Budget** tab and click on **Create a Budget**.
 
 #. Select **Business Unit/Cost Center based Budget** and click **Next**.
 
@@ -319,7 +324,7 @@ In this exercise you will define a budget for a cost center and set up a related
 
 #. Add your email address under **Alert Notifications** and click **Save**.
 
-	.. figure:: images/beam_29b.png
+	.. figure:: images/beam_29.png
 
 	You have now created a budget alert to be notified when spending in your cost center goes above a certain threshold relative to your configured quarterly budget.
 
@@ -332,29 +337,25 @@ AWS Account Configuration
 
 This section will walk you through how Beam identifies cost savings for public clouds like AWS. In order to configure Beam with AWS, customers will need access to their **AWS Payer account**. Any Linked accounts associated with the Payer account will automatically be identified by Beam.
 
-From the main toolbar naving to the **AWS** cloud section, select the **Beam Engg** Payer account.
+From the menu at the top left go to **Dashboard** and then in the **view selector**,  select **AWS cloud**, select the **Beam Engg** Payer account.
 
-	.. figure:: images/beam_30a.png
+	.. figure:: images/beam_30.png
 
 .. note::
 
 	For the lab environment, an AWS Payer Account named **Beam Engg** has already been configured. You may familiarize yourself with the configuration steps
 
-#. From the toolbar at the top right select **Configure > AWS Account**. You will see the **Beam Engg** Payer account that has been configured in this lab. Click on **Manage**
+#. From the menu at the top left select **Configure > AWS Account**. You will see the **Beam Engg** Payer account that has been configured in this lab. Click on **Manage**
 
-	.. figure:: images/beam_30c.png
+	.. figure:: images/beam_30a.png
 
-#. You will see all the linked accounts associated with the **Beam Engg** Payer account have been identified by Beam. In order to find maximum cost savings, it is recommend to run the following configuration steps for the Payer account and each Linked account under that Payer account. For this lab, we will only concern ourselves with the Payer account. Click on **Edit** at the Payer account level.
+#. You will see all the linked accounts associated with the **Beam Engg** Payer account have been identified by Beam. In order to find maximum cost savings, it is recommended to run the following configuration steps for the Payer account and each Linked account under that Payer account. For this lab, we will only concern ourselves with the Payer account. Click on **Edit** at the Payer account level.
 
-	.. figure:: images/beam_31b.png
+	.. figure:: images/beam_31.png
 
-#. You will see a configuration screen where customers will have to enter their **AWS Cost and Usage Report (CUR)** details. Beam identifies cost spending based on the CUR data. Observe that the CUR name and the AWS S3 storage bucket name where the CUR resides have been configured in the lab setup. Click **Next**.
+#. You will see a configuration screen where customers will have to enter their **AWS Cost and Usage Report (CUR)** details. Beam identifies cost spending based on the CUR data. Observe that the CUR name and the AWS S3 storage bucket name where the CUR resides have been configured in the lab setup. Customers can specify their account name, whether they want to give read-only or read and write access to Beam, and generate a CloudFormation Template. They will run the CloudFormation Template by logging into their AWS Payer or Linked accounts to complete the setup. This will create an AWS access role for Beam and allow Beam to read their billing data from the CUR. If they give write access then they will also be able to take various one-click actions from the Beam console to act upon Beam’s cost saving recommendations.
 
 	.. figure:: images/beam_32.png
-
-#. On the next configuration screen customers can specify their account name, whether they want to give read-only or read and write access to Beam, and generate a CloudFormation Template. They will run the CloudFormation Template by logging into their AWS Payer or Linked accounts to complete the setup. This will create an AWS access role for Beam and allow Beam to read their billing data from the CUR. If they give write access then they will also be able to take various one-click actions from the Beam console to act upon Beam's cost saving recommendations. 
-
-	.. figure:: images/beam_33a.png
 
 #. Click **X** to close the Configurations screen, click **Go Back** to get to the **Dashboard** for the AWS account.
 
@@ -369,49 +370,51 @@ Eliminate Unused Resources
 
 Beam identifies cloud resources that have been unused for an extended period of time and can be eliminated to save on their costs. Beam cost policy defines the criteria it considers when identifying unused resources and is easily configurable based on customer requirement of what should be considered an unused resource.
 
-#. Navigate to **Save > Eliminate** view. Here you will see various cloud resources identified by Beam that have not been used and satisfy the criteria for unused resources in the Beam Cost Policy. 
+#. Click on the **menu on top left** and click on **Save** to go to Overview tab. Next click on the **Eliminate** tab. Here you will see various cloud resources identified by Beam that have not been used and satisfy the criteria for unused resources in the Beam Cost Policy. 
 
+	..figure:: images/beam_33.png
+	
 #. Familiarize yourself with the default Beam cost policy. From the toolbar at the top right select **Configure > Cost Policy**
 
-	.. figure:: images/beam_33d.png
+	.. figure:: images/beam_33a.png
 
-#. Click **View** next to the **System Policy-AWS**. It will show the Beam cost policy used to identify unused and underutilized resources. After reviewing, click **X** to close the policy and select **Go Back** to go back to the Eliminate view.
+#. Click **View** next to the **System Policy-AWS**. It will show the Beam cost policy used to identify unused and underutilized resources. After reviewing, click **X** to close the policy and then select the **menu at top left**, select **Save** and then **Eliminate** tab to go back to Eliminate view.
 
-	.. figure:: images/beam_33c.png
+	.. figure:: images/beam_33b.png
 
-#. In the **Eliminate** view, select **Unused ELB** to see more details about the unused AWS Elastic Load Balancers idenfied by Beam. Click **View List**.
+#. In the **Eliminate** tab, select **Unused ELB** to see more details about the unused AWS Elastic Load Balancers idenfied by Beam. Click **View List**.
 
-	.. figure:: images/beam_34b.png
+	.. figure:: images/beam_34.png
 
 #. You will see see details of unused ELBs including their resource ID, the cloud account that they are in, and associated cost savings by eliminating them. If Beam was given write access during AWS account configuration, customers could take one-click action to eliminate this unused ELB from the Beam console and immediately realize cost savings. The lab environment does not have this feature enabled.
 
-	.. figure:: images/beam_35b.png
+	.. figure:: images/beam_35.png
 
 Right-size Underutilized Resources
 ............................
 
-Beam also identifies cloud resources that are being used but not optimally and therefore they are underutilized. Optimizing the size of these resources can add to cost savings. Beam cost policy defines the criteria is considers when identifying underutilized resources and can be modified by customers.
+Beam also identifies cloud resources that are being used but not optimally and therefore they are underutilized. Optimizing the size of these resources can add to cost savings. Beam cost policy defines the criteria is considered when identifying underutilized resources and can be modified by customers.
 
-#. Navigate to **Save > Optimize** view. Here you will see various cloud resources identified by Beam that satisfy the underutilized resource criteria in the Beam Cost Policy. 
+#. Click on the **Optimize** tab. Here you will see various cloud resources identified by Beam that satisfy the underutilized resource criteria in the Beam Cost Policy.
 
 #. Select **Unuderutilized EC2** to see more details about the underutilized AWS Elastic Compute Cloud instances idenfied by Beam. Click **View List**.
 
-	.. figure:: images/beam_36b.png
+	.. figure:: images/beam_36.png
 
 #. You will see see details of EC2 instances including their resource ID, the cloud account that they are in, and associated cost savings by changing their size from their current size to a downgraded size recommended by Beam. These recommendations are made based on CPU utilization and the optimization rules configured in Beam policy. 
 
-	.. figure:: images/beam_37b.png
+	.. figure:: images/beam_37.png
 
 Smarter Reserved Instance Purchases
 ............................
 
 Beam also makes recommendations on the most optimal EC2 Reserved Instance (RI) purchases based on customer's usage history. By purchase RIs using Beam's recommendations, customers can save a huge amount over their on-demand instance spend. 
 
-#. Navigate to **Purchase > Overview** view. Here you will see the current amount of EC2 RI coverage in the AWS account as well as Beam's recommendations for new RI purchases. Click on **View All Recommendations** to see all RI purchase recommendations
+#. From the **menu at top left**, select **Purchase > Overview** tab. Here you will see the current amount of EC2 RI coverage in the AWS account as well as Beam’s recommendations for new RI purchases. Click on **View All Recommendations** to see all RI purchase recommendations
 
-	.. figure:: images/beam_38b.png
+	.. figure:: images/beam_38.png
 
-#. Here you will see Beam's EC2 RI Purchase recommendations and the associated cost savings by switching to RI instead of on-demand pricing. Beam makes these RI recommendations by first identifying the EC2 instances that are running continuously over a lookback period (default value is 14 days). Beam then normalizies the size of those EC2 instances and calculates the amount of normalized instances that can be optimally covered by an RI purchase. Click on any of the RI recommendations to see their details. 
+#. Here you will see Beam’s EC2 RI Purchase recommendations and the associated cost savings by switching to RI instead of on-demand pricing. Beam makes these RI recommendations by first identifying the EC2 instances that are running continuously over a lookback period (default value is 14 days). Beam then normalizes the size of those EC2 instances and calculates the amount of normalized instances that can be optimally covered by an RI purchase. Click on any of the RI recommendations to see their details.
 
 	.. figure:: images/beam_39.png
 
